@@ -1,13 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>idk</title>
+    <title>全屏卡片示例</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: sans-serif;
+            padding: 20px;
+            cursor: pointer; /* 鼠标变成手型，提示用户可以点击 */
+        }
+
+        /* 之前的精致卡片样式 */
+        .card {
+            background-color: white;
+            border: 2px solid black;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 20px auto;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .important-title {
+            color: red;
+            text-align: center;
+        }
+        
+        .right-text {
+            color: blue;
+            text-align: right;
+        }
+
+        /* 全屏提示语样式 */
+        .tip {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <h1>欢迎来到我的网站</h1>
-    <p>i don't know LOL 。</p>
-</hand/>
+
+    <p class="tip">💡 提示：点击页面任意位置，进入全屏模式</p>
+
+    <h1 class="card important-title">我是居中的红色标题</h1>
+    <p class="card right-text">我是靠右的蓝色段落。</p>
+
+    <!-- 核心 JavaScript 代码：处理全屏 -->
+    <script>
+        // 监听整个网页的点击事件
+        document.addEventListener('click', function() {
+            // 获取整个网页文档根节点
+            const docElm = document.documentElement;
+            
+            // 兼容不同浏览器的全屏方法
+            if (docElm.requestFullscreen) {
+                docElm.requestFullscreen();
+            } else if (docElm.msRequestFullscreen) {
+                docElm.msRequestFullscreen(); // 兼容旧版 IE
+            } else if (docElm.mozRequestFullScreen) {
+                docElm.mozRequestFullScreen(); // 兼容旧版火狐
+            } else if (docElm.webkitRequestFullScreen) {
+                docElm.webkitRequestFullScreen(); // 兼容苹果 Safari/谷歌
+            }
+        });
+    </script>
+
 </body>
-       <!-- idk how to I don't know code T_T LOL--->
-  <h1 style="color: red;text-align: center;">I don't know LLL</h1>
 </html>
